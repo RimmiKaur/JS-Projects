@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+        .flex{
+            display: flex;
+            flex-direction: row;
+            
+            font-size: 30px;
+
+        }
+
+        .main{
+            width: 100%;
+        }
+
+        #calculator p{
+            margin: 10px;
+            background-color: white;
+            font-size: 30px;
+            border: 1px solid black;
+            padding: 30px;
+            border-radius: 70%;
+        }
+        #calculator{
+            background-color: black;
+            width: 400px;
+            padding: 5%;
+            margin: auto;
+    
+            
+        }
+
+        #display{
+          width: 88%;
+         border-radius: 0px !important;
+        }
+    </style>
+    </head>
+    <body>
+        <div class="main">
+            <div id="calculator">
+                <div id="row1" class="flex">
+                    <p id="clear">C</p>
+                    <p id="display"></p>
+                </div>
+
+                <div id="row2" class="flex">
+                    <p id="plus">+</p>
+                    <p id="one">1</p>
+                    <p id="two">2</p>
+                    <p id="three">3</p>
+
+                </div>
+
+                <div id="row3" class="flex">
+                    <p id="minus">-</p>
+                    <p id="four">4</p>
+                    <p id="five">5</p>
+                    <p id="six">6</p>
+                </div>
+
+                <div id="row4" class="flex">
+                    <p id="mul">*</p>
+                    <p id="four">7</p>
+                    <p id="five">8</p>
+                    <p id="six">9</p>
+                </div>
+
+                <div id="row5" class="flex">
+                    <p id="div">/</p>
+                    <p id="dot">.</p>
+                    <p id="zero">0</p>
+                    <p id="equals">=</p>
+                </div>
+            </div>
+        </div>
+
+        <script>
+        document.getElementById("calculator").addEventListener('click',(event) => {
+            var a=document.getElementById("display");
+            
+            if(event.target.id === "clear"){
+                document.getElementById("display").innerHTML = "";
+                document.querySelectorAll('p').forEach(element => {
+                    console.log("sdfsdf")
+                    if(element.innerText!='C')
+                {
+                    element.style.pointerEvents='auto';
+                }
+            });
+                
+            }
+            else if(event.target.id === "equals"){
+                let expression = document.getElementById("display").innerHTML;
+                let result = eval(expression);
+                document.getElementById("display").innerHTML = result;
+                document.querySelectorAll('p').forEach(element => {
+                    console.log("sdfsdf")
+                    if(element.innerText!='C')
+                {
+                    element.style.pointerEvents="none";
+                }
+                    
+                });
+            } else if((event.target.id === "plus" ||event.target.id === "minus" ||event.target.id === "div" ||event.target.id === "mul") && (document.getElementById("display").innerHTML[document.getElementById("display").innerHTML.length-1]!==event.target.innerHTML) )
+            {
+                if((a.innerText.charCodeAt(a.innerText.length-1)<49))
+                {
+                    console.log("dsd",a.innerText.charCodeAt(a.innerHTML.length-1), a.innerText[a.innerText.length-1] );
+                    a.innerText = a.innerText.replace(a.innerText[a.innerText.length - 1], event.target.innerText);
+                }
+                else{
+                    document.getElementById("display").innerHTML= document.getElementById("display").innerHTML+ event.target.innerHTML;
+                }
+            }
+             else if((event.target.id !== "plus" && event.target.id !== "minus" && event.target.id !== "div" && event.target.id !== "mul" &&  event.target.id !=='display' && event.target.tagName=='P')){
+                document.getElementById("display").innerHTML += event.target.innerHTML;
+             }
+
+
+
+        });
+    </script>
+    </body>
+</html>

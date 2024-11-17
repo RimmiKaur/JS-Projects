@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            font-size: 20px;
+        }
+
+        .container{
+            width: 30%;
+            padding: 5%;
+            border: 1px solid red;
+            margin: auto;
+        }
+
+        input {
+            font-size: 20px;
+        }
+        
+        p{
+            border: 1px solid red;
+            height: 100px;;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="container">
+            <form>
+                <label>Select your date of birth</label>
+                <input type="date" id="date" name="date">
+            </form>
+            <p></p>
+        </div>
+    </div>
+</body>
+
+<script>
+    document.getElementById("date").addEventListener("input", (event)=>{
+        var date= event.target.value;
+        var today = new Date();
+        var birthDate = new Date(date);
+        var age = today.getFullYear() - birthDate.getFullYear();
+        var m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())){
+            age--;
+        }
+        document.querySelector("p").innerHTML = "You are " + age + " years old.";
+        console.log(date);
+    });
+</script>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+           .container{
+            width: 15%;
+            margin: auto;
+           } 
+
+           button{
+            font-size: 20px;
+
+           }
+        </style>
+
+    </head>
+
+    <body>
+        <div class="main">
+            <div class="container">
+                <button id="on">ON</button>
+                <img id="bulb" src="/images/on.gif">
+                <button id="off">OFF</button>
+            </div>
+        </div>
+    </body>
+
+    <script>
+        document.querySelector('.container').addEventListener('click', (event) => {
+            if (event.target.id === 'on') {
+                document.querySelector('#bulb').src = '/images/on.gif';
+            }
+            if (event.target.id === 'off') {
+                document.querySelector('#bulb').src = '/images/off.gif';
+
+            }
+        })
+    </script>
+</html>

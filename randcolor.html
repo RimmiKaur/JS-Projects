@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="main" >
+        <button >Random Color</button>
+    </div>
+</body>
+
+<script>
+
+    document.getElementById("main").addEventListener("click",(event) => {
+        var red=Math.floor(Math.random()*255);
+        var green=Math.floor(Math.random()*255);
+        var blue= Math.floor(Math.random()*255)
+        if (event.target.tagName === "BUTTON") {
+            console.log("fgdgf");
+            document.body.style.background = `rgb(${red},${green},${blue})`;
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .flex{
+            display: flex;
+            justify-content: space-evenly;
+            margin: 20px;;
+        }
+
+        .circle{
+            background-color: aqua;
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            padding: 48px;
+            box-sizing: border-box;
+            font-size: 30px;
+          margin: 10px auto;
+
+
+        }
+
+        .red{
+            margin: auto;
+            border:1px solid red;
+            width: 400px; 
+            
+            
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="red">
+            <div class="circle">
+                <p id="timer"></p>
+            </div>
+
+        </div>
+    </div>
+</body>
+<script>
+    
+    var interval= setInterval(()=>{
+        var timer=new Date();
+    var time=timer.getHours();
+    var sec=timer.getSeconds();
+    var min=timer.getMinutes();
+    document.getElementById('timer').innerText= time+':'+min+':'+sec;
+
+    },1000);
+
+</script>
+</html>

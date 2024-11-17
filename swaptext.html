@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .container{
+                width: 80%;
+                gap: 20px;
+                display: flex;
+                margin: auto;
+                padding: 20px;
+
+            }
+
+            #big-container{
+                width: 70%;
+                border: 1px solid red;
+                margin: auto;
+                display: flex;
+                padding: 20px;
+                align-items:center ;
+
+                flex-direction: column;
+
+            }
+
+            .main{
+                width: 100%;
+                height: 100vh;
+                
+            }
+
+            .box{
+                width: 50%;
+                padding: 20px;
+
+                word-wrap: break-word;
+                border: 1px solid red;
+                border-radius: 5px;
+            }
+            
+            button{
+                display: block;
+                width: 100px;
+                font-size: large;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="main">
+            <div id="big-container">
+               <div class="container">
+                        <div id="box1" class="box">Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Beatae, aliquam iusto. Exercitationem,
+                            dolorum doloribus similique minus fugiat, mollitia
+                            necessitatibus deleniti labore unde quasi quam placeat non
+                            beatae laboriosam velit veritatis?
+                        </div>
+
+                        <div id="box2"  class="box"><b>Lorem ipsum dolor sit amet consectetur</b>
+                            adipisicing elit. Excepturi iste natus a pariatur, incidunt
+                            neque cupiditate alias dolorem placeat repellendus quas
+                            praesentium commodi dignissimos harum necessitatibus omnis,
+                            suscipit tempora asperiores.
+                        </div>
+               </div>
+               <button>swap</button>
+            </div>
+        </div>
+    </body>
+    <script>
+        var bigContainer= document.getElementById("big-container");
+        bigContainer.addEventListener('click',(event) => {
+            if(event.target.tagName==='BUTTON'){
+                var box1 = document.getElementById("box1").innerHTML;
+                var box2 = document.getElementById("box2").innerHTML;
+
+                document.getElementById('box1').innerHTML=box2;
+                document.getElementById('box2').innerHTML=box1;
+
+            }
+        })
+    </script>
+</html>

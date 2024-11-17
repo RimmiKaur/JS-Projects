@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+        #container{
+            width:40%;
+            padding: 3%;
+            border:1px solid black;
+            margin: auto;
+        }
+
+        input{
+            font-size: 25px;
+        }
+
+        button{
+            font-size: 25px;
+        }
+
+        .form2{
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+           
+        }
+
+        
+
+        p{
+            font-size: 25px;
+        
+        }
+
+        ul{
+            list-style: none;
+        }
+        li{
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+    </head>
+    <body>
+        <div class="main">
+            <div id="container">
+                <form id="form1">
+                    <input type="text" name="list"
+                        placeholder="Enter the list item" id="value">
+                    <button id="add">
+                        Add Item
+                    </button>
+                </form>
+                <ul id="tasklist">
+
+                </ul>
+                
+            </div>
+        </div>
+    </body>
+    <script>
+        const list = document.getElementById('tasklist');
+        document.getElementById("add").addEventListener("click", (event)=>{
+        event.preventDefault();
+        var value= document.getElementById('value').value;
+
+        list.innerHTML += `<li>
+                                <div style="display: flex;">
+                                    <input type="checkbox" name="check">
+                                    <p style="word-wrap:break-word; font-size:20px;">${value}</p>
+                                </div>
+                                <p style="color:red; margin-right: 20px;" class="remove">x</p>
+                            </li>`;
+
+            // const removeButtons = document.querySelectorAll('.remove');
+            //     removeButtons.forEach(button => {
+            //         button.addEventListener('click', function() {
+            //             this.parentElement.remove();
+            //         });
+            //     });
+            
+        
+    });
+
+
+    list.addEventListener('click', (event) => {
+    if (event.target.classList.contains('remove')) {
+        event.target.parentElement.remove();
+    }
+});
+</script>
+</html>

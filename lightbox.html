@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .flex {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .circle {
+        background-color: aqua;
+        border-radius: 50%;
+        width: 200px;
+        height: 200px;
+        text-align: center;
+        padding: 48px;
+        box-sizing: border-box;
+        font-size: 30px;
+        margin: 10px auto;
+    }
+
+    .red {
+        margin: auto;
+        border: 1px solid red;
+        width: 1000px;
+        height: 600px;
+        position: relative;
+        padding: 20px;
+    }
+
+    img {
+        width: 300px;
+    }
+
+    #image {
+        width: 500px;
+        height: 450px;
+    }
+
+    .trans {
+        width: 500px;
+        height: 450px;
+        position: absolute;
+        top: 10%;
+        left: 30%;
+        opacity: 0;
+        transform: scale(1);
+        z-index: 1;
+        transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .x {
+        background-color: red;
+        font-size: large;
+        position: absolute;
+        padding: 10px;
+        top: 10%;
+        right: 10%;
+        display: none;
+    }
+</style>
+</head>
+<body>
+<div class="main">
+    <div class="red flex" id="red">
+        <img src="images/1.jpg">
+        <img src="images/2.jpg">
+        <img src="images/3.jpg">
+        <img src="images/4.jpg">
+        <img src="images/5.jpg">
+        <img src="images/6.jpg">
+
+        <div class="trans" id="trans"></div>
+        <div class="x" id="x">X</div>
+    </div>
+</div>
+<script>
+    document.getElementById('red').addEventListener('click', (e) => {
+        if (e.target.tagName === 'IMG') {
+            document.getElementById('trans').style.opacity = '1';
+            document.getElementById('trans').style.transform = 'scale(1.5)';
+            document.getElementById('trans').innerHTML = `<img id='image' src="${e.target.src}">`;
+            document.getElementById('x').style.display = 'block';
+        }
+    });
+
+    document.getElementById('x').addEventListener('click', (e) => {
+        document.getElementById('trans').style.opacity = '0';
+        document.getElementById('trans').style.transform = 'scale(1)';
+        document.getElementById('x').style.display = 'none';
+    });
+</script>
+</body>
+</html>

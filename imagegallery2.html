@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+        *{
+            margin: 0%;
+            padding: 0%;
+        }
+
+        #all-pictures img{
+            width: 250px;
+            height: 300px;
+            object-fit: cover;
+
+        }
+
+        .main{
+            width: 100%;
+        }
+
+        #big-div{
+            width:1020px;
+            margin: auto;
+        }
+
+        #big-picture img{
+            width: 1000px;
+            height: 400px;
+            object-fit: cover;
+        }
+    </style>
+    </head>
+
+    <body>
+        <div class="main">
+            <div id="big-div">
+                <div id="big-picture">
+                    <img id="pic"
+                        src="/images/DALL·E 2024-10-14 21.45.58 - A black and white continuous line drawing of a person in depression and anxiety. The central figure is sitting hunched over, with their head in their .jpg">
+                </div>
+                <div id="all-pictures">
+                    <img
+                        src="/images/DALL·E 2024-10-14 21.45.58 - A black and white continuous line drawing of a person in depression and anxiety. The central figure is sitting hunched over, with their head in their .jpg">
+                    <img src="/images/design a book cover (1).jpg">
+                    <img src="/images/design a book cover (2).jpg">
+                    <img src="/images/design a book cover (3).jpg">
+                </div>
+            </div>
+        </div>
+        <script>
+        document.getElementById('big-div').addEventListener('click', (event) =>
+    {
+        if(event.target.tagName === 'IMG'){
+            
+            document.getElementById('pic').src = event.target.src;
+        }
+    })
+  </script>
+    </body>
+</html>

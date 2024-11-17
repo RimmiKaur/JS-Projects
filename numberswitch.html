@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            width: 100%;
+        }
+
+        .container{
+            width: 70%;
+            margin: auto;
+            display: flex;
+            text-align: center;
+            justify-content: space-between;
+            height: 400px;
+            border: 1px solid black; 
+            padding: 20px;
+
+        }
+
+        .box{
+            font-size: 20px;
+
+        }
+
+        p{
+            width: 200px;
+            height: 200px;
+            font-size: 80px;
+            text-align: center;
+            box-sizing: border-box;
+            padding-top: 50px;
+            margin-bottom: 10px;
+            border: 1px solid black; 
+        }
+
+        button{
+            font-size: 20px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="container">
+            <div id="box1" class="box">
+                <p>1</p>
+                <button> > </button>
+            </div>
+            <div id="box2" class="box">
+                <p>2</p>
+                <button> >> </button>
+            </div>
+            <div id="box3" class="box">
+                <p></p>
+                <button> >>> </button>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    let boxes = document.querySelectorAll('p');
+    let buttons=  document.querySelectorAll('button');
+
+    buttons[0].addEventListener('click',()=>{
+        if(boxes[0].innerText !== '')
+    {
+        // console.log("dscsd");
+        boxes[2].innerText= boxes[1].innerText;
+        boxes[1].innerText = boxes[0].innerText ;
+        boxes[0].innerText = '';
+    }
+    
+    });
+
+    buttons[1].addEventListener('click',()=>{
+        if(boxes[1].innerText !== '' && boxes[2].innerText==='')
+    {
+        // console.log("dscsd");
+        boxes[2].innerText = boxes[1].innerText ;
+        boxes[0].innerText= boxes[0].innerText;
+        boxes[1].innerText = '';
+    }
+    else if(boxes[1].innerText !== ''){
+        boxes[0].innerText= boxes[2].innerText;
+
+        boxes[2].innerText = boxes[1].innerText ;
+        boxes[1].innerText = '';
+    }
+    });
+
+    buttons[2].addEventListener('click',()=>{
+        if(boxes[2].innerText !== '')
+    {
+        // console.log("dscsd");
+        boxes[1].innerText = boxes[0].innerText ;
+        boxes[0].innerText= boxes[2].innerText;
+        boxes[2].innerText = '';
+    }
+    });
+
+</script>
+</html>

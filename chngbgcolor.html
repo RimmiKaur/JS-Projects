@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            width: 100%;
+        }
+
+        .container{
+            width:40%;
+            margin: auto;
+        }
+
+        #color{
+            width: 100%;
+            border-radius: 5px;
+            height: 300px;
+            margin: 20px 0;
+            background-color: black;
+        }
+
+        button{
+            font-size: 20px;
+        }
+
+        
+        input{
+            font-size: 22px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="container">
+            <div id="color"></div>
+            <div class="input">
+                <input type="text" placeholder="color">
+                <button>Change bg color</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    document.getElementsByTagName('button')[0].addEventListener('click',()=>
+    {
+        var color= document.getElementsByTagName('input')[0].value;
+        console.log('dew', color);
+        document.getElementById('color').style.backgroundColor= `${color}`;
+        
+
+
+
+
+
+        
+    });
+</script>
+</html>
